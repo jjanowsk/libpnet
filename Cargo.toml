@@ -19,9 +19,11 @@ pcap = ["pnet_datalink/pcap"]
 appveyor = []
 travis = []
 serde = ["pnet_base/serde", "pnet_datalink?/serde"]
-std = ["pnet_base/std", "pnet_sys", "pnet_datalink", "pnet_transport", "ipnetwork"]
+std = ["pnet_base/std", "pnet_sys", "pnet_datalink/std", "pnet_transport", "ipnetwork"]
 default = ["std"]
 nightly = []
+winpkfilter = ["pnet_datalink/winpkfilter"]
+winpcap = ["pnet_datalink/winpcap"]
 
 [dependencies]
 ipnetwork = { version = "0.20.0", optional = true }
@@ -53,6 +55,18 @@ required-features = ["std"]
 
 [[example]]
 name = "transport_echo_server"
+required-features = ["std"]
+
+[[example]]
+ name = "send_packets"
+required-features = ["std"]
+
+[[example]]
+name = "receive_packets"
+required-features = ["std"]
+
+[[example]]
+name = "listen"
 required-features = ["std"]
 
 [[bench]]
